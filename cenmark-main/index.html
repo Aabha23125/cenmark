@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cenmark</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+    CENMARK PLASTICS
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li class="dropdown">
+        <a href="#">Products ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="Plastic Paver Mould.html">Plastic Paver Mould</a></li>
+          <li><a href="Plastic Tile Mould.html">Plastic Tile Mould</a></li>
+          <li><a href="Interlocking Plastic Tile Mould.html">Interlocking Plastic Tile Mould</a></li>
+          <li><a href="Interlocking Paver Block Mould.html">Interlocking Paver Block Mould</a></li>
+          <li><a href="plastic mould.html">Plastic mould</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  </header>
+
+
+<!-- Hero Section -->
+    
+<div class="fusn-bt-hero">
+  <div class="slides">
+    <div class="slide"><img src="img/ban1.avif" alt="Slide 1"></div>
+    <div class="slide"><img src="img/ban2.avif" alt="Slide 2"></div>
+    <div class="slide"><img src="img/ban3.avif" alt="Slide 3"></div>
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+  <div class="dots">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</div>
+
+<style>
+.fusn-bt-hero {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  
+}
+.fusn-bt-hero .slides {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+.fusn-bt-hero .slide {
+  min-width: 100%;
+}
+
+
+.fusn-bt-hero img {
+  width: 100%;
+  display: block;
+  margin-top: 70px;
+  height: auto; /* Default for mobile */
+}
+
+/* For desktop and larger screens */
+/* @media (min-width: 768px) {
+  .fusn-bt-hero img {
+    height: 670px;
+    object-fit: cover; 
+  }
+} */
+
+
+
+.fusn-bt-hero .prev,
+.fusn-bt-hero .next {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0);
+  color: white;
+  border: none;
+  /* padding: 10px; */
+  cursor: pointer;
+  border-radius: 50%;
+}
+.fusn-bt-hero .prev { left: 10px; }
+.fusn-bt-hero .next { right: 10px; }
+.fusn-bt-hero .dots {
+  text-align: center;
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+}
+.fusn-bt-hero .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.fusn-bt-hero .dot.active {
+  background: #fff;
+}
+</style>
+
+
+
+<script>
+(function() {
+  const slider = document.querySelector('.fusn-bt-hero');
+  const slides = slider.querySelectorAll('.slide');
+  const dots = slider.querySelectorAll('.dot');
+  const slidesContainer = slider.querySelector('.slides');
+  let currentIndex = 0;
+  let autoSlideInterval;
+
+  function showSlide(index) {
+    if (index >= slides.length) { index = 0; }
+    if (index < 0) { index = slides.length - 1; }
+    slidesContainer.style.transform = 'translateX(' + (-index * 100) + '%)';
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+    currentIndex = index;
+  }
+
+  function startAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, 9500);
+  }
+
+  function userSlide(nextIndex) {
+    showSlide(nextIndex);
+    startAutoSlide(); // Reset timer
+  }
+
+  slider.querySelector('.next').addEventListener('click', () => {
+    userSlide(currentIndex + 1);
+  });
+
+  slider.querySelector('.prev').addEventListener('click', () => {
+    userSlide(currentIndex - 1);
+  });
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => userSlide(idx));
+  });
+
+  showSlide(currentIndex);
+  startAutoSlide(); // Start the auto-slide on load
+})();
+</script>
+
+
+
+  <!-- <section class="hero">
+    <div class="slide active" style="background-image: url(img/ban1.avif);">
+      <div class="overlay"></div>
+    </div>
+    <div class="slide" style="background-image: url('img/ban2.avif');">
+      <div class="overlay"></div>
+    </div>
+    <div class="slide" style="background-image: url('img/ban3.avif');">
+      <div class="overlay"></div>
+    </div>
+    <div class="hero-content">
+      <span>Welcome to Cenmark Plastic</span>
+      <h1>Let's Build Something Solid Together</h1>
+      <button class="btn">Read More→</button>
+    </div>
+    <div class="controllers">
+      <div class="dot active" onclick="showSlide(0)"></div>
+      <div class="dot" onclick="showSlide(1)"></div>
+      <div class="dot" onclick="showSlide(2)"></div>
+    </div>
+  </section> -->
+
+  <!-- <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = index;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    setInterval(() => {
+      let nextSlide = (currentSlide + 1) % slides.length;
+      showSlide(nextSlide);
+    }, 5000);
+
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('show');
+    }
+
+    function toggleDropdown(event) {
+      event.preventDefault();
+      const parent = event.target.closest('li');
+      parent.classList.toggle('open');
+
+      // Close other dropdowns
+      document.querySelectorAll('li.dropdown').forEach(item => {
+        if (item !== parent) item.classList.remove('open');
+      });
+    }
+  </script> -->
+
+
+  <!-- Existing Header and Hero Here -->
+
+  <!-- <section class="Our Product" style="margin-top: 63px; width: 100%; height: 315px;">
+    <div class="destination-grid">
+      <div class="destination-card" style="background-image: url('img/paver\ mould.webp');">
+        <div class="text">
+          <h4>6 product Available</h4>
+          <p>Plastic Paver Mould</p>
+        </div>
+      </div>
+      <div class="destination-card" style="background-image: url('img/chequered-mould.webp');">
+        <div class="text">
+          <h4>7 product Available</h4>
+          <p>chequered-mould</p>
+        </div>
+      </div>
+      <div class="destination-card" style="background-image: url('img/pvc-milano-moulds.webp');">
+        <div class="text">
+          <h4>7 product Available</h4>
+          <p>PVC-Milano Mould</p>
+        </div>
+      </div>
+      <div class="destination-card" style="background-image: url('img/dumble-pvc-paver-mould.webp');">
+        <div class="text">
+          <h4>1 product Available</h4>
+          <p>Plastic Molded Cabinets</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+
+
+  <!-- </style> -->
+
+  <section class="family-section">
+    <h1>Who We Are</h1>
+    <p>One of the leading companies in the plastic mold production industry is Cenmark Plastic. Our team is dedicated to
+      creating molds that function flawlessly in tough conditions, and it is built on a foundation of engineering
+      excellence and in-depth industry knowledge.
+
+      As a reputable manufacturer and supplier, we work with builders, contractors, and construction companies all
+      across India that want paving and tiling projects that are durable, aesthetically pleasing, and consistent.
+
+      Our goal is to provide long-lasting goods that support the infrastructure of the future.
+    </p>
+  </section>
+
+  <section class="slider">
+    <div class="slider-inner">
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+      <a href="#"><img src="img/plastic paver mould.png"> </a>
+      <a href="#"><img src="img/plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking plastic tile mould.png"> </a>
+      <a href="#"><img src="img/interlocking-paver-block-mould.png"> </a>
+      <a href="#"><img src="img/plastic-mould.png"> </a>
+
+      <!-- duplicate -->
+
+    </div>
+  </section>
+
+  <script>
+    const slider = document.getElementById('familySlider');
+    let current = 0;
+    let totalSlides = Math.ceil(slider.children.length / 3);
+
+    function goToSlide(index) {
+      slider.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      if (dots[index]) dots[index].classList.add('active');
+      current = index;
+    }
+  </script>
+
+  <div class="feature">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="f-con">
+            <li> <i class="fa-solid fa-business-time"></i></li>
+            <h1> Nature of Business</h1>
+            <p>Manufacturer</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="f-con">
+            <li><i class="fa-solid fa-scale-balanced"></i></li>
+            <h1> Legal Status of Firm</h1>
+            <p>Proprietorship</p>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="f-con">
+            <li> <i class="fa-solid fa-arrow-up-right-dots"></i></li>
+            <h1> Annual Turnover</h1>
+            <p>40L-1.5 Cr</p>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="f-con">
+            <li> <i class="fa-solid fa-building"></i></li>
+            <h1> GST Registration Date</h1>
+            <p>01-07-2017</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="f-con">
+            <li> <i class="fa-solid fa-users"></i></li>
+            <h1> Total Number of Employees</h1>
+            <p>11 to 25 People</p>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="f-con">
+            <li> <i class="fa-regular fa-file"></i></li>
+            <h1> GST Number</h1>
+            <p>07AVCPS8904J1Z6</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="why">
+    <div class="container">
+      <div class="row">
+        <div class="why-img">
+          <img src="img/3570698-location-1558967915027-1000x1000.jpg">
+        </div>
+        <div class="why-h">
+          <h1>Why Cenmark Plastic?</h1>
+          <p> We are a quality-conscious firm and continuously struggle hard to bring forth only premium quality
+            products to our prestigious patrons at reasonable rates. Unique reasons which have given us lead in this
+            field are given below:
+          <ul>
+            <li>In-House Manufacturing</li>
+            <li>Experienced Team</li>
+            <li>Prompt delivery</li>
+            <li>Affordable Pricing</li>
+            <li>Customer Support</li>
+          </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="prod">
+    <div class="container">
+      <div class="row d-flex">
+        <div class="prod-con">
+          <div class="col-sm-3">
+            <div class="prod-h">
+              <h1> Our Products</h1>
+            </div>
+          </div>
+
+          <div class="prod-h">
+            <div class="col-sm-9">
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-area">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-img">
+              <img src="img/plastic paver mould.png">
+            </div>
+            <div class="card-con">
+              <h2> Plastic Paver Mould</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-img">
+              <img src="img/plastic tile mould.png">
+            </div>
+            <div class="card-con">
+              <h2> Plastic Tile Mould</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-img">
+              <img src="img/interlocking plastic tile mould.png">
+            </div>
+            <div class="card-con">
+              <h2> Interlocking Plastic Tile Mould</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-img">
+              <img src="img/interlocking-paver-block-mould.png">
+            </div>
+            <div class="card-con">
+              <h2> Interlocking Paver Block Mould</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <!-- <div class="col-sm-3">
+          <div class="card">
+            <div class="card-img">
+              <img src="img/plastic-mould.png">
+            </div>
+            <div class="card-con">
+              <h2> Plastic Mould</h2>
+            </div>
+          </div>
+        </div> -->
+
+
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-img">
+              <img src="img/plastic-mould.png">
+            </div>
+            <div class="card-con">
+              <h2> Plastic Mould</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="last">
+    <div clss="container">
+      <div class="row">
+
+        <div class="col-sm-6">
+          <div class="last-img">
+            <img src="img/3570698-location-1558702217486-1000x1000.jpg">
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="last-con">
+            <h1>About Us</h1>
+            <h3 style="font-size:19px;">Shaping Quality. Moulding Trust.</h3>
+            <p>Welcome to Cenmark Plastic, a place where precision and creativity collide in the production of plastic
+              molds. As a top producer and supplier of premium Plastic Paver Moulds, Plastic Tile Moulds, Interlocking
+              Plastic Tile Moulds, and other bespoke plastic mold solutions, we were founded with the goal of
+              revolutionizing the construction mold business.
+
+              Our objective has been straightforward but effective from the start: to provide molds that not only
+              satisfy but also beyond the demands of builders, contractors, and developers throughout India. We stand
+              out for our dedication to quality, robustness, and creative design.
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+
+
+
+
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="footer-con">
+            <h1>Cenmark</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quos nesciunt harum reiciendis obcaecati, ipsam aliquam odio architecto sed nemo iure molestias numquam! Laborum maiores rem modi unde illo voluptatibus?</p>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="footer-con1">
+            <h1>Quick Links</h1>
+          </div>
+          <div class="tag">
+            <ul>
+              <li> <a href="#"></i> Home</a></li>
+              <li> <a href="#"></i> About Us</a></li>
+              <li> <a href="#"></i> Contact Us</a></li>
+              <!-- <li> <a href="#"></i> About Us</a></li> -->
+            </ul>
+          </div>
+        </div>
+
+        
+        <div class="col-sm-3">
+          <div class="footer-con1">
+            <h1>Products</h1>
+          </div>
+          <div class="tag">
+            <ul>
+              <li> <a href="#">Paver Mould</a></li>
+              <li> <a href="#"> Chequered Mould</a></li>
+              <li> <a href="#"> Pvc Milano Moulds</a></li>
+            </ul>
+          </div>
+        </div>
+
+        
+        <div class="col-sm-3">
+          <div class="footer-con1">
+            <h1>Contact Us</h1>
+          </div>
+          <div class="tag">
+            <ul>
+              <li> <i class="fa-solid fa-phone"></i> Phone : 9212043463</li>
+              <li> <i class="fa-solid fa-phone"></i> Email : cenmarkplastic@gmail.com</li>
+              <li> <a href="#"><i class="fa-solid fa-location-dot"></i> Address : A-142, Mayapuri Industrial Area, Phase-II Near Gullab House, New Delhi-110064, India</a></li>
+            </ul>
+          </div>
+        </div>
+
+
+        
+
+
+        <div class="company">
+          <div class="container">
+            <div class="row d-flex">
+              <div class="company-con">
+                <p> &#169; Cenmark-by Promopact Marketing</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+</body>
+
+</html>
