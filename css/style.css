@@ -639,11 +639,13 @@ footer {
 }
 
 .tag a {
-  text-decoration: none;
-  color: #fff;
-  letter-spacing: 1px;
-  font-size: 15px;
-  line-height: 32px;
+      text-decoration: none;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 15px;
+    width: 200px;
+    display: flow;
+    width: 319px !important;
 }
 
 
@@ -670,6 +672,7 @@ footer {
   text-align: center;
   font-size: 15px;
   color: #4d4c4c;
+  margin-top: 100px;
 }
 
 .company {
@@ -930,7 +933,7 @@ footer {
   /* Footer */
   footer {
     height: auto;
-    padding: 30px 15px;
+    /* padding: 30px 15px; */
   }
   
   .footer-con, .footer-con1 {
